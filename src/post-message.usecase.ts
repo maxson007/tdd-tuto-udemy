@@ -19,6 +19,9 @@ export interface DateProvider {
     getNow(): Date;
 }
 
+export class MessageTooLongError extends Error {}
+export class EmptyMessageError extends Error {}
+
 export class PostMessageUseCase {
     constructor(
         private readonly messageRepository: MessageRepository,
