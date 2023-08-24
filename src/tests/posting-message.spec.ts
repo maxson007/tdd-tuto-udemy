@@ -7,6 +7,7 @@ import {
     PostMessageCommand,
     PostMessageUseCase,
 } from "../post-message.usecase";
+import {InMemoryMessageRepository} from "../in-memory-message.repository";
 
 describe("Feature: Posting a message", () => {
     let fixture: Fixture;
@@ -74,12 +75,6 @@ describe("Feature: Posting a message", () => {
     });
 });
 
-class InMemoryMessageRepository implements MessageRepository {
-    message: Message;
-    save(msg: Message): void {
-        this.message = msg;
-    }
-}
 
 class StubDateProvider implements DateProvider {
     now: Date;
